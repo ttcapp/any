@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
-String btnText = "Button 1";
-String btnText2 = "Button 2";
-String btnText3 = "Button 3";
+String btnText = "click to see picture";
+
+bool pictureVisiblity=false;
+
 Color btnClr1=Colors.lightGreen;
-Color btnClr2=Colors.lightGreen;
-Color btnClr3=Colors.lightGreen;
 
 
 class MyApp extends StatelessWidget {
@@ -39,40 +38,35 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("My First App"
         ),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Align(
           child: Column(
 
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               RaisedButton(
                 child: Text(btnText,style: TextStyle(color: Colors.blueAccent),),
                 color: btnClr1,
                   onPressed:(){
                   setState(() {
-                    btnText="Button Pressed 1";
+                    btnText="picture is visible now";
+                    pictureVisiblity=true;
                   });
 
                   }),
-              RaisedButton(
-                  child: Text(btnText2,style: TextStyle(color: Colors.blueAccent),),
-                  color: btnClr2,
-                  onPressed:(){
-                    setState(() {
-                      btnText2="Button Pressed 2";
-                    });
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              // crossAxisAlignment: CrossAxisAlignment.center,
+              SizedBox(
+                height: 10,
+              ),
+              Visibility(
+                 visible:pictureVisiblity ,
+                  child: Image.network("https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510__480.jpg"))
 
-                  }),
-              RaisedButton(
-                  child: Text(btnText3,style: TextStyle(color: Colors.blueAccent),),
-                  color: btnClr3,
-                  onPressed:(){
-                    setState(() {
-                      btnText3="Button Pressed 3";
-                    });
-
-                  })
-            ],
+                         ],
           ),
         ),
       ),
