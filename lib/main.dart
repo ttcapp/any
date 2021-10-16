@@ -11,7 +11,7 @@ String imagesrc = "https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729
 double imgHeight = 299;
 double imgwidth =250;
 
-Color btnClr1=Colors.lightGreen;
+Color btnClr1=Colors.limeAccent;
 
 
 class MyApp extends StatelessWidget {
@@ -48,7 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              RaisedButton(onPressed: (){
+              RaisedButton(
+                child: Text("go to the next page"),
+                  onPressed: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>SecondPage()));
               }),
               SizedBox(
@@ -345,6 +347,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: imgHeight,
                               width: imgwidth,
                               child: Image.network(imagesrc,fit: BoxFit.fill,)),
+
                         ),
 
                       ],
